@@ -9,7 +9,7 @@ function App() {
       inStock: true,
       description: "The best laptop in the world!",
       rating: "⭐⭐⭐⭐⭐",
-      tags: ["New", "Sale", "The best!"]
+      tags: ["New", "The best!"]
     },
     {
       title: "Laptop 1",
