@@ -188,6 +188,15 @@ const CourseForm = () => {
             placeholder="Address"
           />
           <input
+            type="text"
+            name="state"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.state}
+            touched={touched}
+            placeholder="State"
+          />
+          <input
             type="number"
             name="zipCode"
             onChange={handleChange}
