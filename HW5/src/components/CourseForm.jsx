@@ -89,76 +89,34 @@ const CourseForm = () => {
           {errors.fullName && touched.fullName && (
             <div style={{ color: "red" }}>{errors.fullName}</div>
           )}
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-            placeholder="Email"
-          />
-          {errors.email && touched.email && (
-            <div style={{ color: "red" }}>{errors.email}</div>
-          )}
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-            placeholder="Password"
-          />
-          {errors.password && touched.password && (
-            <div style={{ color: "red" }}>{errors.password}</div>
-          )}
-          <RadioGroup
-            name="course"
-            options={["Course A", "Course B", "Course C"]}
-            values={values}
-            errors={errors}
-            touched={touched}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-          />
-          <RadioGroup
-            name="gender"
-            options={["Male", "Female"]}
-            values={values}
-            errors={errors}
-            touched={touched}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-          />
-          <input
-            type="date"
-            name="dateOfBirth"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.dateOfBirth}
-          />
-          {errors.dateOfBirth && touched.dateOfBirth && (
-            <div style={{ color: "red" }}>{errors.dateOfBirth}</div>
-          )}
-          <SelectField
-            name="city"
-            label="City"
-            options={["Almaty", "Astana", "Taldyqorgan"]}
-            values={values}
-            errors={errors}
-            touched={touched}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-          />
-          <SelectField
-            name="country"
-            label="Country"
-            options={["Kazakhstan", "USA", "Russia"]}
-            values={values}
-            errors={errors}
-            touched={touched}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-          />
+          <div className="email-password">
+            <div>
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder="Email"
+              />
+              {errors.email && touched.email && (
+                <div style={{ color: "red" }}>{errors.email}</div>
+              )}
+            </div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder="Password"
+              />
+              {errors.password && touched.password && (
+                <div style={{ color: "red" }}>{errors.password}</div>
+              )}
+            </div>
+          </div>
           <input
             type="text"
             name="phone"
@@ -168,6 +126,43 @@ const CourseForm = () => {
             touched={touched}
             placeholder="Phone"
           />
+          <p>Wich course are you appliying for?</p>
+          <div className="courses">
+            <RadioGroup
+              name="course"
+              options={["Course A", "Course B", "Course C"]}
+              values={values.gender}
+              errors={errors.course}
+              touched={touched.course}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+            />
+          </div>
+          <p>Date of birth</p>
+          <div className="date-gender">
+            <div className="dateOfBirth">
+              <input
+                type="date"
+                name="dateOfBirth"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.dateOfBirth}
+              />
+              {errors.dateOfBirth && touched.dateOfBirth && (
+                <div style={{ color: "red" }}>{errors.dateOfBirth}</div>
+              )}
+            </div>
+            <RadioGroup
+              name="gender"
+              options={["Male", "Female"]}
+              values={values.gender}
+              errors={errors.gender}
+              touched={touched.gender}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+            />
+          </div>
+          <p>Education</p>
           <SelectField
             name="education"
             label="Education"
@@ -178,33 +173,60 @@ const CourseForm = () => {
             handleChange={handleChange}
             handleBlur={handleBlur}
           />
-          <input
-            type="text"
+          <textarea
             name="address"
+            rows="5"
+            cols="40"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.address}
             touched={touched}
             placeholder="Address"
           />
-          <input
-            type="text"
-            name="state"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.state}
-            touched={touched}
-            placeholder="State"
-          />
-          <input
-            type="number"
-            name="zipCode"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.zipCode}
-            touched={touched}
-            placeholder="Zip Code"
-          />
+          <div>
+            <div className="row1">
+              <SelectField
+                name="city"
+                label="City"
+                options={["Almaty", "Astana", "Taldyqorgan"]}
+                values={values}
+                errors={errors}
+                touched={touched}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+              />
+              <input
+                type="text"
+                name="state"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.state}
+                touched={touched}
+                placeholder="State"
+              />
+            </div>
+            <div className="row2">
+              <SelectField
+                name="country"
+                label="Country"
+                options={["Kazakhstan", "USA", "Russia"]}
+                values={values}
+                errors={errors}
+                touched={touched}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+              />
+              <input
+                type="number"
+                name="zipCode"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.zipCode}
+                touched={touched}
+                placeholder="Zip Code"
+              />
+            </div>
+          </div>
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>

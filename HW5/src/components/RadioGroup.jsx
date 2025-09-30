@@ -1,7 +1,6 @@
 import "../styles/index.css";
 
 const RadioGroup = ({
-  name,
   options,
   values,
   errors,
@@ -15,17 +14,17 @@ const RadioGroup = ({
         <label key={option}>
           <input
             type="radio"
-            name={name}
             value={option}
+
             onChange={handleChange}
             onBlur={handleBlur}
-            checked={values[name] === option}
+            checked={values === option}
           />
           {option}
         </label>
       ))}
-      {errors[name] && touched[name] && (
-        <div style={{ color: "red" }}>{errors[name]}</div>
+      {errors && touched && (
+        <div style={{ color: "red" }}>{errors}</div>
       )}
     </div>
   );
